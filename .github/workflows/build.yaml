@@ -40,11 +40,11 @@ jobs:
         with:
           distribution: "adopt"
           java-version: "17"
-      - name: Copy keystore file
-        run: |
-          echo $'storePassword=${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}\nkeyPassword=${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}\nkeyAlias=upload\nstoreFile=upload-keystore.jks\n' > ./android/key.properties
-          echo "${{ secrets.ANDROID_KEYSTORE }}" > ./android/app/upload-keystore.jks.asc
-          gpg -d --passphrase "${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}" --batch ./android/app/upload-keystore.jks.asc > ./android/app/upload-keystore.jks
+      #- name: Copy keystore file
+      #  run: |
+      #    echo $'storePassword=${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}\nkeyPassword=${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}\nkeyAlias=upload\nstoreFile=upload-keystore.jks\n' > ./android/key.properties
+      #    echo "${{ secrets.ANDROID_KEYSTORE }}" > ./android/app/upload-keystore.jks.asc
+      #    gpg -d --passphrase "${{ secrets.ANDROID_KEYSTORE_PASSPHRASE }}" --batch ./android/app/upload-keystore.jks.asc > ./android/app/upload-keystore.jks
       - name: Disabling flutter analytics
         run: flutter config --no-analytics
       - name: Running build
