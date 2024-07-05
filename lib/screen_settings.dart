@@ -273,7 +273,7 @@ class _ScreenSettingsState extends State<ScreenSettings> {
       });
       return;
     }
-    if ((request.statusCode == 200 && request.body == "Ollama is running") ||
+    if ((request.statusCode == 200) ||
         (Uri.parse(tmpHost).toString() == fixedHost)) {
       setState(() {
         hostLoading = false;
